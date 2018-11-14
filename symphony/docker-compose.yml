@@ -1,0 +1,33 @@
+version: "2"
+services:
+  php-apache:
+    build:
+      context: ./php-apache
+    ports:
+      - 83:80
+    volumes:
+      - ./starwarsevents:/var/www/html
+    links:
+      - "mariadb"
+  mariadb:
+    image: mariadb:10.1
+    volumes:
+      - mariadb:/var/lib/mysql
+    environment:
+      TZ: "America/Sao_Paulo"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_USER: "testuser"
+      MYSQL_PASSWORD: "testpasswd"
+      MYSQL_DATABASE: "testdb"
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      links: 
+        - mariadb
+      environment: 
+        PMA_HOST: mariadb
+        PMA_PORT: 3306
+      ports: 
+        - 76:80
+volumes: 
+  mariadb:
