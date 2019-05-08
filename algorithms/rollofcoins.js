@@ -14,7 +14,7 @@
  * Below is a table of how many coins should be in each roll per denomination:
  * 
  *  +---------------+-----------------+--------+  
- *  | Cois          | Coins Per Roll  | Value  |
+ *  | Coins         | Coins Per Roll  | Value  |
  *  +---------------+-----------------+--------+  
  *  | Penny => 1    | 50              | $0.50  |
  *  +---------------+-----------------+--------+ 
